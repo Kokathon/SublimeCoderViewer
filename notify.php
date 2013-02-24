@@ -1,13 +1,13 @@
 <?php
 
-if (isset($_POST)) {
+if (isset($_POST['file'])) {
 
 	$action = $_POST['action'];
 	$user = $_POST['user'];
 	$file = $_POST['file'];
 
-	$fp = fopen('file','a');
-	fwrite($fp, $user . ' ' . $action . ' file ' . $file . "\n");
+	$fp = fopen('history','a');
+	fwrite($fp, time() . '|' . $user . '|' . $action . '|' . $file . "\n");
 	fclose($fp);
 }
 
